@@ -1,9 +1,15 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
-export default function PrimaryButton({ children }: { children: string }) {
+export default function PrimaryButton({
+  children,
+  onPress,
+}: {
+  children: string;
+  onPress: () => void;
+}) {
   function pressHandler() {
-    console.log("pressed");
+    onPress();
   }
 
   return (
