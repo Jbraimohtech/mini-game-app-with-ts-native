@@ -5,7 +5,7 @@ export default function PrimaryButton({
   children,
   onPress,
 }: {
-  children: string;
+  children: React.ReactNode;
   onPress: () => void;
 }) {
   function pressHandler() {
@@ -21,7 +21,11 @@ export default function PrimaryButton({
         onPress={pressHandler}
         android_ripple={{ color: "#640233" }}
       >
-        <Text style={styles.buttonText}>{children}</Text>
+        {typeof children === "string" ? (
+          <Text style={styles.buttonText}>{children}</Text>
+        ) : (
+          children
+        )}
       </Pressable>
     </View>
   );
