@@ -1,6 +1,7 @@
 import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
+import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { ImageBackground, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -56,16 +57,19 @@ function MainGameScreen() {
   }
 
   return (
-    <LinearGradient style={styles.rootScreen} colors={["#680436", "#ddb52f"]}>
-      <ImageBackground
-        source={require("../../assets/images/dices-background.jpg")}
-        resizeMode="cover"
-        style={styles.rootScreen}
-        imageStyle={{ opacity: 0.15 }}
-      >
-        <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
-      </ImageBackground>
-    </LinearGradient>
+    <>
+      <StatusBar style="light" />
+      <LinearGradient style={styles.rootScreen} colors={["#680436", "#ddb52f"]}>
+        <ImageBackground
+          source={require("../../assets/images/dices-background.jpg")}
+          resizeMode="cover"
+          style={styles.rootScreen}
+          imageStyle={{ opacity: 0.15 }}
+        >
+          <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
+        </ImageBackground>
+      </LinearGradient>
+    </>
   );
 }
 
